@@ -1,6 +1,7 @@
 resource "aws_instance" "example" {
   ami           = var.AMIS[var.AWS_REGION]
   instance_type = "t2.micro"
+  count = 2
 
   # the VPC subnet
   subnet_id = aws_subnet.main-public-1.id
@@ -10,6 +11,10 @@ resource "aws_instance" "example" {
 
   # the public SSH key
   key_name = aws_key_pair.mykeypair.key_name
+
+  tags = {
+    Name = "production_${count.index}"
+  }
 }
 
 //resource "aws_ebs_volume" "ebs-volume-1" {
