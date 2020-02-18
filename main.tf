@@ -31,7 +31,7 @@ resource "aws_security_group" "default" {
   name = "terraform-default-sg"
 
   dynamic "ingress" {
-    for_each = variables.ports
+    for_each = var.ports
     content {
       from_port   = ingress.key
       to_port     = ingress.key
