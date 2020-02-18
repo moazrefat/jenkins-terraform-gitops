@@ -12,6 +12,15 @@ variable "instance_type" {
   default     = "t3.small"
 }
 
+
+variable "ports" {
+  type = map(list(string))
+  default = {
+    "22" = [ "127.0.0.1/32", "192.168.0.0/24" ]
+    "443" = [ "0.0.0.0/0" ]
+  }
+}
+
 variable "ami" {
   description = "Base AMI to launch the instances"
 

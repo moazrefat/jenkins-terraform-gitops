@@ -30,18 +30,14 @@ resource "aws_instance" "default" {
 resource "aws_security_group" "default" {
   name = "terraform-default-sg"
 
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+  dynamic "ingress" {
+    for_each = variables.ports
+    content {
+      from_port   = ingress.key
+      to_port     = ingress.key
+      cidr_blocks = ingress.value
+      protocol    = "tcp"
+    }
   }
 
 }
