@@ -26,8 +26,3 @@ resource "aws_instance" "example" {
 //  volume_id   = aws_ebs_volume.ebs-volume-1.id
 //  instance_id = aws_instance.example.id
 //}
-<<<<<<< HEAD
-//
-=======
-
->>>>>>> production
