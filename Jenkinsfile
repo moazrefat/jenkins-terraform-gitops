@@ -1,5 +1,5 @@
 // Jenkinsfile
-String credentialsId = 'jenkins-terraform-gitops'
+String credentialsId = 'aws'
 
 try {
   stage('checkout') {
