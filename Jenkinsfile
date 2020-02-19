@@ -41,11 +41,7 @@ try {
     }
   }
 
-<<<<<<< HEAD
   if (env.BRANCH_NAME == 'development') {
-=======
-  if (env.BRANCH_NAME == 'production') {
->>>>>>> production
 
     // Run terraform apply
     stage('apply') {
