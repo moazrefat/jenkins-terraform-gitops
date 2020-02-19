@@ -41,7 +41,7 @@ try {
     }
   }
 
-  if (env.BRANCH_NAME == 'production') {
+  if (env.BRANCH_NAME == 'master') {
 
   }
   currentBuild.result = 'SUCCESS'
